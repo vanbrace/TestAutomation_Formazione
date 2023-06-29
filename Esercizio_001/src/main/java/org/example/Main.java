@@ -1,5 +1,10 @@
 package org.example;
 
+import org.example.Corso;
+import org.example.Docente;
+import org.example.Studente;
+import org.example.Universita;
+
 
 public class Main {
     public static void main(String[] args) {

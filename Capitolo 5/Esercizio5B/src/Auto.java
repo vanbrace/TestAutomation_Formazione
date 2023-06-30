@@ -7,11 +7,11 @@ public class Auto {
         setScuderia(scuderia);
     }
 
-    public void setPilota(String pilota){
+    public void setPilota(Pilota pilota){
        this.pilota = pilota;
     }
 
-    public String getPilota(){
+    public Pilota getPilota(){
         return pilota;
     }
 

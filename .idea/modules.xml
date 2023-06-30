@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Capitolo 5/Capitolo 5.iml" filepath="$PROJECT_DIR$/Capitolo 5/Capitolo 5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Capitolo 4/Esercizio 4A/Esercizio 4A.iml" filepath="$PROJECT_DIR$/Capitolo 4/Esercizio 4A/Esercizio 4A.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Capitolo 4/Esercizio 4B/Esercizio 4B.iml" filepath="$PROJECT_DIR$/Capitolo 4/Esercizio 4B/Esercizio 4B.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Capitolo 4/Esercizio 4C/Esercizio 4C.iml" filepath="$PROJECT_DIR$/Capitolo 4/Esercizio 4C/Esercizio 4C.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Capitolo 4/Esercizio 4C array/Esercizio 4C array.iml" filepath="$PROJECT_DIR$/Capitolo 4/Esercizio 4C array/Esercizio 4C array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EsercizioPot/EsercizioPot.iml" filepath="$PROJECT_DIR$/EsercizioPot/EsercizioPot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TestAutomation_Formazione.iml" filepath="$PROJECT_DIR$/.idea/TestAutomation_Formazione.iml" />
+    </modules>
+  </component>
+</project>

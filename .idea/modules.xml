@@ -10,7 +10,10 @@
       <module fileurl="file://$PROJECT_DIR$/Capitolo 4/Esercizio 4C array/Esercizio 4C array.iml" filepath="$PROJECT_DIR$/Capitolo 4/Esercizio 4C array/Esercizio 4C array.iml" />
       <module fileurl="file://$PROJECT_DIR$/EsercizioOperazioni/EsercizioOperazioni.iml" filepath="$PROJECT_DIR$/EsercizioOperazioni/EsercizioOperazioni.iml" />
       <module fileurl="file://$PROJECT_DIR$/EsercizioPot/EsercizioPot.iml" filepath="$PROJECT_DIR$/EsercizioPot/EsercizioPot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Giocatore/Giocatore.iml" filepath="$PROJECT_DIR$/Giocatore/Giocatore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Smartphone/Smartphone.iml" filepath="$PROJECT_DIR$/Smartphone/Smartphone.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/TestAutomation_Formazione.iml" filepath="$PROJECT_DIR$/.idea/TestAutomation_Formazione.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Universita/Universita.iml" filepath="$PROJECT_DIR$/Universita/Universita.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/06-07-23/06-07-23.iml" filepath="$PROJECT_DIR$/06-07-23/06-07-23.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/EserciziExtra.iml" filepath="$PROJECT_DIR$/.idea/EserciziExtra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-07-2023/Giocatore/Giocatore.iml" filepath="$PROJECT_DIR$/05-07-2023/Giocatore/Giocatore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-07-2023/Smartphone/Smartphone.iml" filepath="$PROJECT_DIR$/05-07-2023/Smartphone/Smartphone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-07-23/TriangoloRettangolo/TriangoloRettangolo.iml" filepath="$PROJECT_DIR$/06-07-23/TriangoloRettangolo/TriangoloRettangolo.iml" />
+    </modules>
+  </component>
+</project>

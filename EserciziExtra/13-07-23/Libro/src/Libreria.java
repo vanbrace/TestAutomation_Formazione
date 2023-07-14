@@ -49,15 +49,18 @@ public class Libreria {
     }
 
     public double calcolaMediaPrezzo(ArrayList<Double> vectPrezzi){
-        if (libri.size() == 0){
+
+        int dimensione = vectPrezzi.size();
+        System.out.println("Dimensione: " + dimensione);
+        if (dimensione == 0){
             return 0;
         }
         double somma = 0;
         double media = 0;
-        for (int j = 0; j< libri.size(); j++) {
+        for (int j = 0; j < dimensione; j++) {
              somma += vectPrezzi.get(j);
         }
-        media = somma / libri.size();
+        media = somma / vectPrezzi.size();
 
         return media;
     }

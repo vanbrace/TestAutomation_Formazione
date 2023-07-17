@@ -30,7 +30,7 @@ public class Main2 {
             Scanner input4 = new Scanner(System.in);
             double dur1 = Integer.parseInt(input4.nextLine());
             song1.setDurata(dur1);
-            
+
             x.add(song1);
         }
         Playlist play1 = new Playlist(x);

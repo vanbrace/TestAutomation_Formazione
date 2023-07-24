@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class FormAuthenticationPage {
     private WebDriver driver;
 
-    private By usernameButton = By.id("username");
-    private By passwordButton = By.id("password");
+    private By usernameBox = By.id("username");
+    private By passwordBox = By.id("password");
     private By confirmButton = By.cssSelector("button.radius[type='submit']");
 
     public FormAuthenticationPage(WebDriver driver){
@@ -16,8 +16,8 @@ public class FormAuthenticationPage {
 
     //Metodo che inserisce username, password e conferma
     public void login(String username, String password){
-        driver.findElement(usernameButton).sendKeys(username);
-        driver.findElement(passwordButton).sendKeys(password);
+        driver.findElement(usernameBox).sendKeys(username);
+        driver.findElement(passwordBox).sendKeys(password);
         driver.findElement(confirmButton).click();
     }
 

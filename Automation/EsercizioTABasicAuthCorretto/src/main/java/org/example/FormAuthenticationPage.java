@@ -11,6 +11,7 @@ public class FormAuthenticationPage {
     private By usernameBox = By.id("username");
     private By passwordBox = By.id("password");
     private By confirmButton = By.cssSelector("button.radius[type='submit']");
+    private By logOut = By.cssSelector("a[href='/logout']");
     private By logOutButton = By.xpath("//i[contains(text(),'Logout')]");
 
     public FormAuthenticationPage(WebDriver driver){
@@ -45,6 +46,13 @@ public class FormAuthenticationPage {
         } catch (NoSuchElementException e) {
             return false; // Pulsante di logout non trovato, l'accesso non è riuscito.
         }
+    }
+
+    public void logOut(){
+        if(isLoginSuccessful())
+        {driver.findElement(logOut).click();}
+        else
+        System.out.println("Non è possibile effettuare il logout");
     }
 
 }

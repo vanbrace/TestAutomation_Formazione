@@ -7,6 +7,7 @@ import org.testng.Assert;
 public class FileDownload {
     WebDriver driver;
     private By testFileButtonLink = By.cssSelector("a[href='download/2.txt.txt']");
+    private By test2ButtonLink = By.cssSelector("a[href='download/youtube-nepal.png']");
 
     public FileDownload(WebDriver driver){
         this.driver = driver;
@@ -14,6 +15,10 @@ public class FileDownload {
     }
     public void downloadTest1(){
         driver.findElement(testFileButtonLink).click();
+    }
+
+    public void dowloadTest2(){
+        driver.findElement(test2ButtonLink).click();
     }
 
 }

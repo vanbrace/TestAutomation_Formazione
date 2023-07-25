@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.util.HashMap;
 
-public class KerokuappToFormAuthenticationTest {
+public class HerokuappToFormAuthenticationTest {
     WebDriver driver;
     String username = "tomsmith";
     //String username = "abcdefg";
@@ -46,7 +46,10 @@ public class KerokuappToFormAuthenticationTest {
         FormAuthenticationPage paginaFormAuthentication1 = new FormAuthenticationPage(driver);
         paginaFormAuthentication1.login(username, password);
 
-        //torno indietro
+        //faccio la logout
+        paginaFormAuthentication1.logOut();
+
+        //torno indietro alla pagina principale
         driver.navigate().to(url);
 
         //Cerco il link relativo al search add and remove elements
@@ -105,6 +108,7 @@ public class KerokuappToFormAuthenticationTest {
         herokuappHomePage1.searchFileDownload();
         FileDownload fileDownload = new FileDownload(driver);
         fileDownload.downloadTest1();
+        fileDownload.dowloadTest2();
 
         //torno alla pagina principale
         driver.navigate().to(url);

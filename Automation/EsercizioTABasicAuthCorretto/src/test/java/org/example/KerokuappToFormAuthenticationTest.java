@@ -116,7 +116,6 @@ public class KerokuappToFormAuthenticationTest {
 
         //torno alla pagina principale
         driver.navigate().to(url);
-
     }
 }
 

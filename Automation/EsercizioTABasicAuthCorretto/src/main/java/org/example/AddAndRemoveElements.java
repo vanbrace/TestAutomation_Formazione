@@ -32,9 +32,6 @@ public class AddAndRemoveElements {
         } else {
            System.out.println("Non è possibile rimuovere un numero di elementi superiore a quelli aggiunti");
         }
-
     }
-
-
 
 }

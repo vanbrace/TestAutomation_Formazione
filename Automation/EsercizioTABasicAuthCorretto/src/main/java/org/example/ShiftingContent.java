@@ -16,6 +16,5 @@ public class ShiftingContent {
     public void menuElement(){
         driver.findElement(menuElementButtonLink).click();
         driver.findElement(homeButton).click();
-
     }
 }

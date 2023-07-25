@@ -6,14 +6,14 @@ import org.testng.Assert;
 
 public class FileDownload {
     WebDriver driver;
-    private By testFileButtomLink = By.cssSelector("a[href='download/2.txt.txt']");
+    private By testFileButtonLink = By.cssSelector("a[href='download/2.txt.txt']");
 
     public FileDownload(WebDriver driver){
         this.driver = driver;
 
     }
     public void downloadTest1(){
-        driver.findElement(testFileButtomLink).click();
+        driver.findElement(testFileButtonLink).click();
     }
 
 }

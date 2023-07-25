@@ -2,7 +2,6 @@ package org.example;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -12,6 +11,7 @@ import java.util.HashMap;
 public class KerokuappToFormAuthenticationTest {
     WebDriver driver;
     String username = "tomsmith";
+    //String username = "abcdefg";
     String password = "SuperSecretPassword!";
     String url = "http://the-internet.herokuapp.com/";
     int numberAdd = 4;
@@ -105,6 +105,14 @@ public class KerokuappToFormAuthenticationTest {
         herokuappHomePage1.searchFileDownload();
         FileDownload fileDownload = new FileDownload(driver);
         fileDownload.downloadTest1();
+
+        //torno alla pagina principale
+        driver.navigate().to(url);
+
+        //Cerco il link relativo alla multiple window
+        herokuappHomePage1.searchMultipleWindow();
+        MultipleWindow multipleWindow = new MultipleWindow(driver);
+        multipleWindow.openNewWindow();
 
         //torno alla pagina principale
         driver.navigate().to(url);

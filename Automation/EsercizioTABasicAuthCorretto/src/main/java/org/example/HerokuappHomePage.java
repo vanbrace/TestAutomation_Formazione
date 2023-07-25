@@ -13,6 +13,7 @@ public class HerokuappHomePage {
     private By dynamicLoadingButtonLink = By.xpath("//a[contains(text(),'Dynamic Loading')]");
     private By fileDownloadButtonLink = By.cssSelector("a[href='/download']");
     private By shiftingContent = By.xpath("//a[contains(text(),'Shifting Content')]");
+    private By multipleWindowbutton = By.cssSelector("a[href='/windows']");
     private final String url = "http://the-internet.herokuapp.com/";
 
 
@@ -57,5 +58,9 @@ public class HerokuappHomePage {
 
     public void searchShiftingContent(){
         driver.findElement(shiftingContent).click();
+    }
+
+    public void searchMultipleWindow(){
+        driver.findElement(multipleWindowbutton).click();
     }
 }

@@ -19,6 +19,8 @@ public class AddAndRemoveElements {
         this.numberRemove = numberRemove;
     }
 
+
+
     public void addAndRemove(int numberAdd, int numberRemove){
         for(int i=0; i<numberAdd; i++){
         driver.findElement(addButton).click();
@@ -32,5 +34,7 @@ public class AddAndRemoveElements {
         }
 
     }
+
+
 
 }

@@ -30,7 +30,7 @@ public class AddAndRemoveElements {
         driver.findElement(removeButton).click();
         }
         } else {
-           System.out.println("Non è possibile rimuovere un numero di elemnti superiore a quelli aggiunti");
+           System.out.println("Non è possibile rimuovere un numero di elementi superiore a quelli aggiunti");
         }
 
     }

@@ -12,7 +12,6 @@ public class MultipleWindow {
     }
 
     public void openNewWindow(){
-        //da implementare
-        driver.findElement(clickHere);
+        driver.findElement(clickHere).click();
     }
 }

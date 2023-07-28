@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public class AddAndRemoveElements {
     private WebDriver driver;
-    private int numberAdd;
-    private int numberRemove;
 
 
     private By addButton = By.xpath("//button[contains(text(),'Add Element')]");
@@ -15,9 +13,7 @@ public class AddAndRemoveElements {
 
     public AddAndRemoveElements(WebDriver driver){
         this.driver = driver;
-        this.numberAdd = numberAdd;
-        this.numberRemove = numberRemove;
-    }
+      }
 
 
 

@@ -6,7 +6,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
 
 public class HerokuappToFormAuthenticationTest {
     WebDriver driver;
@@ -34,7 +33,7 @@ public class HerokuappToFormAuthenticationTest {
     }
 
     @Test
-    public void testHerokuappToFormAuthentication() throws InterruptedException {
+    public void testHerokuappToFormAuthentication() {
         //Apro Herokuapp
         HerokuappHomePage herokuappHomePage1 = new HerokuappHomePage(driver);
         herokuappHomePage1.openHerokuapp();

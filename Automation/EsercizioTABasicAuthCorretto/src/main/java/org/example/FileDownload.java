@@ -6,8 +6,8 @@ import org.testng.Assert;
 
 public class FileDownload {
     WebDriver driver;
-    private By testFileButtonLink = By.cssSelector("a[href='download/test.txt']");
-    private By test2ButtonLink = By.cssSelector("a[href='download/image (1).png']");
+    private By testFileButtonLink = By.cssSelector("a[href='download/Test.pdf']");
+    private By test2ButtonLink = By.cssSelector("a[href='download/12.txt']");
 
     public FileDownload(WebDriver driver){
         this.driver = driver;

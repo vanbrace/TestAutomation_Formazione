@@ -2,12 +2,11 @@ package org.example;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 public class FileDownload {
     WebDriver driver;
-    private By testFileButtonLink = By.cssSelector("a[href='download/Test.pdf']");
-    private By test2ButtonLink = By.cssSelector("a[href='download/12.txt']");
+    private By testFileButtonLink = By.cssSelector("a[href='download/some-file.txt']");
+    private By test2ButtonLink = By.cssSelector("a[href='download/sample_media_file.png']");
 
     public FileDownload(WebDriver driver){
         this.driver = driver;

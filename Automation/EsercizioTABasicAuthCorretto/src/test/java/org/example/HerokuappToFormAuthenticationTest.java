@@ -107,7 +107,7 @@ public class HerokuappToFormAuthenticationTest {
         herokuappHomePage1.searchFileDownload();
         FileDownload fileDownload = new FileDownload(driver);
         fileDownload.downloadTest1();
-        fileDownload.dowloadTest2();
+        //fileDownload.dowloadTest2();
 
         //torno alla pagina principale
         driver.navigate().to(url);

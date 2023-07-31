@@ -34,6 +34,10 @@ public class HerokuappToFormAuthenticationTest {
 
     @Test
     public void testHerokuappToFormAuthentication() {
+
+        //Test1 test1 = new Test1();
+        //test1.testLoginErrataHerokuapp();
+
         //Apro Herokuapp
         HerokuappHomePage herokuappHomePage1 = new HerokuappHomePage(driver);
         herokuappHomePage1.openHerokuapp();
@@ -107,7 +111,7 @@ public class HerokuappToFormAuthenticationTest {
         herokuappHomePage1.searchFileDownload();
         FileDownload fileDownload = new FileDownload(driver);
         fileDownload.downloadTest1();
-        //fileDownload.dowloadTest2();
+        fileDownload.dowloadTest2();
 
         //torno alla pagina principale
         driver.navigate().to(url);

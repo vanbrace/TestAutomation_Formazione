@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class FileDownload {
     WebDriver driver;
     private By testFileButtonLink = By.cssSelector("a[href='download/some-file.txt']");
-    private By test2ButtonLink = By.cssSelector("a[href='download/sample_media_file.png']");
+    private By test2ButtonLink = By.cssSelector("a[href='download/img1.png']");
 
     public FileDownload(WebDriver driver){
         this.driver = driver;

@@ -33,26 +33,13 @@ public class AddAndRemoveElements {
 
     public void setButtonLocators(String buttonName, String buttonType, String buttonValue) {
         if (buttonName.contains("addButton")) {
-            addButton = convertStringToBy(buttonType, buttonValue);
+            ConvertitoreDaStringheABy convertitoreDaStringheABy = new ConvertitoreDaStringheABy();
+            addButton = ConvertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
         } else if (buttonName.contains("removeButton")) {
-            removeButton = convertStringToBy(buttonType, buttonValue);
+            removeButton = ConvertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
         }
     }
 
-    private By convertStringToBy(String locatorType, String locatorValue) {
-        switch (locatorType) {
-            case "xpath":
-                return By.xpath(locatorValue);
-            case "cssselector":
-                return By.cssSelector(locatorValue);
-            case "id":
-                return By.id(locatorValue);
-            case "classname":
-                return By.className(locatorValue);
-            default:
-                throw new IllegalArgumentException("Tipo di locator non supportato: " + locatorType);
-        }
-    }
 
     public void addAndRemove(int numberAdd, int numberRemove) {
         if (addButton == null || removeButton == null) {

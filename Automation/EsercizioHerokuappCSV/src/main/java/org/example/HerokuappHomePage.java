@@ -28,25 +28,26 @@ public class HerokuappHomePage {
             System.out.println("Nel costruttore HerokuappHomePage nel for \t" + locatorType);
             String locatorValue = getLocatorValue(locator);
             System.out.println("Nel costruttore HerokuappHomePage nel for \t" + locatorValue);
+            ConvertitoreDaStringheABy convertitoreDaStringheABy = new ConvertitoreDaStringheABy();
 
             if (locatorValue.contains("login")) {
-                formAuthenticationButtonLink = convertStringToBy(locatorType, locatorValue);
+                formAuthenticationButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("add")) {
-                addAndRemoveElementsButtonLink = convertStringToBy(locatorType, locatorValue);
+                addAndRemoveElementsButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Checkboxes")) {
-                checkboxesButtonLink = convertStringToBy(locatorType, locatorValue);
+                checkboxesButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Disappearing")) {
-                disappearingElementsButtonLink = convertStringToBy(locatorType, locatorValue);
+                disappearingElementsButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Dynamic Content")) {
-                dynamicContentButtonLink = convertStringToBy(locatorType, locatorValue);
+                dynamicContentButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Dynamic Loading")) {
-                dynamicLoadingButtonLink = convertStringToBy(locatorType, locatorValue);
+                dynamicLoadingButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Download")) {
-                fileDownloadButtonLink = convertStringToBy(locatorType, locatorValue);
+                fileDownloadButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Shifting")) {
-                shiftingContent = convertStringToBy(locatorType, locatorValue);
+                shiftingContent = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("windows")) {
-                multipleWindowbutton = convertStringToBy(locatorType, locatorValue);
+                multipleWindowbutton = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
                 System.out.println("Nel costruttore \t" + multipleWindowbutton.toString());
             }
         }
@@ -62,21 +63,6 @@ public class HerokuappHomePage {
         return locatorString.split(":")[1].trim();
     }
 
-    private By convertStringToBy(String locatorType, String locatorValue) {
-        switch (locatorType) {
-            case "xpath":
-                return By.xpath(locatorValue);
-            case "cssSelector":
-                return By.cssSelector(locatorValue);
-            case "id":
-                return By.id(locatorValue);
-            case "classname":
-                return By.className(locatorValue);
-            default:
-                throw new IllegalArgumentException("Tipo di locator non supportato: " + locatorType);
-        }
-    }
-
     // Metodo per aprire la pagina di Herokuapp
     public void openHerokuapp() {
         driver.get(url);
@@ -84,40 +70,42 @@ public class HerokuappHomePage {
 
     //Metodo per la ricerca del buttonlink relativo al Form Authentication
     public void searchformAuthentication() {
-        driver.findElement(formAuthenticationButtonLink).click();
+        cliccaBottone(formAuthenticationButtonLink);
     }
 
     public void searchAddAndRemoveElements() {
-        driver.findElement(addAndRemoveElementsButtonLink).click();
+        cliccaBottone(addAndRemoveElementsButtonLink);
     }
 
     public void searchCheckboxes() {
-        driver.findElement(checkboxesButtonLink).click();
+        cliccaBottone(checkboxesButtonLink);
     }
 
     public void searchDisappearingElements() {
-        driver.findElement(disappearingElementsButtonLink).click();
+        cliccaBottone(disappearingElementsButtonLink);
     }
 
     public void searchDynamicContent() {
-        driver.findElement(dynamicContentButtonLink).click();
+        cliccaBottone(dynamicContentButtonLink);
     }
 
     public void searchDynamicLoading() {
-        driver.findElement(dynamicLoadingButtonLink).click();
+        cliccaBottone(dynamicLoadingButtonLink);
     }
 
     public void searchFileDownload() {
-        driver.findElement(fileDownloadButtonLink).click();
+        cliccaBottone(fileDownloadButtonLink);
     }
 
     public void searchShiftingContent() {
-        driver.findElement(shiftingContent).click();
+        cliccaBottone(shiftingContent);
     }
 
     public void searchMultipleWindow() {
-        System.out.println("Clicco su Multiple Windows");
-        System.out.println(multipleWindowbutton.toString());
-        driver.findElement(multipleWindowbutton).click();
+        cliccaBottone(multipleWindowbutton);
+    }
+
+    public void cliccaBottone(By button){
+        driver.findElement(button).click();
     }
 }

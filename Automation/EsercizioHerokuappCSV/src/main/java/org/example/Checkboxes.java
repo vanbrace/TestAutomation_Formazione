@@ -23,7 +23,8 @@ public class Checkboxes {
             //System.out.println( "locatorValue: \t" + locatorValue);
 
             if (locatorValue.contains("checkboxes")) {
-                spuntaCheckbox = convertStringToBy(locatorType, locatorValue);
+                ConvertitoreDaStringheABy convertitoreDaStringheABy = new ConvertitoreDaStringheABy();
+                spuntaCheckbox = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
                 spuntaCheckbox.toString();
             }
         }

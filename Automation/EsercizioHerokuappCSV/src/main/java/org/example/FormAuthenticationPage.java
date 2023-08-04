@@ -24,17 +24,18 @@ public class FormAuthenticationPage {
         for (By locator : locatorDataList) {
             String locatorType = getLocatorType(locator);
             String locatorValue = getLocatorValue(locator);
+            ConvertitoreDaStringheABy convertitoreDaStringheABy = new ConvertitoreDaStringheABy();
 
             if (locatorValue.contains("username")) {
-                usernameBox = convertStringToBy(locatorType, locatorValue);
+                usernameBox = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("password")) {
-                passwordBox = convertStringToBy(locatorType, locatorValue);
+                passwordBox = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("submit")) {
-                confirmButton = convertStringToBy(locatorType, locatorValue);
+                confirmButton = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("logout")) {
-                logOut = convertStringToBy(locatorType, locatorValue);
+                logOut = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Logout")) {
-                logOutButton = convertStringToBy(locatorType, locatorValue);
+                logOutButton = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             }
             }
         }
@@ -48,22 +49,6 @@ public class FormAuthenticationPage {
         String locatorString = locator.toString();
         return locatorString.split(":")[1].trim();
     }
-
-    private By convertStringToBy(String locatorType, String locatorValue) {
-        switch (locatorType) {
-            case "xpath":
-                return By.xpath(locatorValue);
-            case "cssSelector":
-                return By.cssSelector(locatorValue);
-            case "id":
-                return By.id(locatorValue);
-            case "classname":
-                return By.className(locatorValue);
-            default:
-                throw new IllegalArgumentException("Tipo di locator non supportato: " + locatorType);
-        }
-    }
-
 
 
     //Metodo che inserisce username, password e conferma

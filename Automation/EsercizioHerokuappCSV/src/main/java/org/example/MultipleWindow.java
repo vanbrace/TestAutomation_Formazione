@@ -29,21 +29,6 @@ public class MultipleWindow {
         System.out.println("Using locator: " + clickHere);
     }
 
-    private By convertStringToBy(String locatorType, String locatorValue) {
-        switch (locatorType){
-            case "xpath":
-                return By.xpath(locatorValue);
-            case "cssSelector":
-                return By.cssSelector(locatorValue);
-            case "id":
-                return By.id(locatorValue);
-            case "classname":
-                return By.className(locatorValue);
-            default:
-                throw new IllegalArgumentException("Tipo di locator non supportato: " + locatorType);
-        }
-    }
-
     public void openNewWindow() {
         System.out.println("Clicco su clickHere");
         driver.findElement(clickHere).click();

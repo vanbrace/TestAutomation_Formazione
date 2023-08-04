@@ -32,25 +32,11 @@ public class ShiftingContent {
     }
 
     public void setButtonLocators(String buttonName, String buttonType, String buttonValue) {
+        ConvertitoreDaStringheABy convertitoreDaStringheABy = new ConvertitoreDaStringheABy();
         if (buttonName.contains("Example 1")) {
-            menuElementButtonLink = convertStringToBy(buttonType, buttonValue);
+            menuElementButtonLink = convertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
         } else if (buttonName.contains("Home")) {
-            homeButton = convertStringToBy(buttonType, buttonValue);
-        }
-    }
-
-    private By convertStringToBy(String locatorType, String locatorValue) {
-        switch (locatorType) {
-            case "xpath":
-                return By.xpath(locatorValue);
-            case "cssselector":
-                return By.cssSelector(locatorValue);
-            case "id":
-                return By.id(locatorValue);
-            case "classname":
-                return By.className(locatorValue);
-            default:
-                throw new IllegalArgumentException("Tipo di locator non supportato: " + locatorType);
+            homeButton = convertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
         }
     }
 

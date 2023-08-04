@@ -32,11 +32,10 @@ public class ShiftingContent {
     }
 
     public void setButtonLocators(String buttonName, String buttonType, String buttonValue) {
-        ConvertitoreDaStringheABy convertitoreDaStringheABy = new ConvertitoreDaStringheABy();
         if (buttonName.contains("Example 1")) {
-            menuElementButtonLink = convertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
+            menuElementButtonLink = ConvertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
         } else if (buttonName.contains("Home")) {
-            homeButton = convertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
+            homeButton = ConvertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
         }
     }
 

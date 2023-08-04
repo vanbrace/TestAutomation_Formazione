@@ -23,8 +23,7 @@ public class Checkboxes {
             //System.out.println( "locatorValue: \t" + locatorValue);
 
             if (locatorValue.contains("checkboxes")) {
-                ConvertitoreDaStringheABy convertitoreDaStringheABy = new ConvertitoreDaStringheABy();
-                spuntaCheckbox = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                spuntaCheckbox = ConvertStringToBy(locatorType, locatorValue);
                 spuntaCheckbox.toString();
             }
         }
@@ -39,23 +38,6 @@ public class Checkboxes {
         String locatorString = locator.toString();
         return locatorString.split(":")[1].trim();
     }
-
-    private By convertStringToBy(String locatorType, String locatorValue) {
-        switch (locatorType) {
-            case "xpath":
-                return By.xpath(locatorValue);
-            case "cssSelector":
-                return By.cssSelector(locatorValue);
-            case "id":
-                return By.id(locatorValue);
-            case "classname":
-                return By.className(locatorValue);
-            default:
-                throw new IllegalArgumentException("Tipo di locator non supportato: " + locatorType);
-        }
-    }
-
-
 
     public void checkbox() {
         if (spuntaCheckbox != null) {

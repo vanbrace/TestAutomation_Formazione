@@ -28,26 +28,25 @@ public class HerokuappHomePage {
             System.out.println("Nel costruttore HerokuappHomePage nel for \t" + locatorType);
             String locatorValue = getLocatorValue(locator);
             System.out.println("Nel costruttore HerokuappHomePage nel for \t" + locatorValue);
-            ConvertitoreDaStringheABy convertitoreDaStringheABy = new ConvertitoreDaStringheABy();
 
             if (locatorValue.contains("login")) {
-                formAuthenticationButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                formAuthenticationButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("add")) {
-                addAndRemoveElementsButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                addAndRemoveElementsButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Checkboxes")) {
-                checkboxesButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                checkboxesButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Disappearing")) {
-                disappearingElementsButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                disappearingElementsButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Dynamic Content")) {
-                dynamicContentButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                dynamicContentButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Dynamic Loading")) {
-                dynamicLoadingButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                dynamicLoadingButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Download")) {
-                fileDownloadButtonLink = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                fileDownloadButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Shifting")) {
-                shiftingContent = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                shiftingContent = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("windows")) {
-                multipleWindowbutton = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                multipleWindowbutton = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
                 System.out.println("Nel costruttore \t" + multipleWindowbutton.toString());
             }
         }

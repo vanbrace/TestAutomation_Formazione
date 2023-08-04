@@ -32,11 +32,10 @@ public class AddAndRemoveElements {
     }
 
     public void setButtonLocators(String buttonName, String buttonType, String buttonValue) {
-        ConvertitoreDaStringheABy convertitoreDaStringheABy = new ConvertitoreDaStringheABy();
         if (buttonName.contains("addButton")) {
-            addButton = convertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
+            addButton = ConvertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
         } else if (buttonName.contains("removeButton")) {
-            removeButton = convertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
+            removeButton = ConvertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
         }
     }
 

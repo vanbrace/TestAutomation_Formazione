@@ -24,18 +24,17 @@ public class FormAuthenticationPage {
         for (By locator : locatorDataList) {
             String locatorType = getLocatorType(locator);
             String locatorValue = getLocatorValue(locator);
-            ConvertitoreDaStringheABy convertitoreDaStringheABy = new ConvertitoreDaStringheABy();
 
             if (locatorValue.contains("username")) {
-                usernameBox = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                usernameBox = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("password")) {
-                passwordBox = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                passwordBox = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("submit")) {
-                confirmButton = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                confirmButton = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("logout")) {
-                logOut = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                logOut = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             } else if (locatorValue.contains("Logout")) {
-                logOutButton = convertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                logOutButton = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             }
             }
         }

@@ -17,45 +17,42 @@ public class FormAuthenticationPage {
     private By logOutButton;
     List<By> locatorDataList;
 
-    public FormAuthenticationPage(WebDriver driver, List<By> locatorDataList){
+    public FormAuthenticationPage(WebDriver driver, List<List<String>> locatorDataList){
         this.driver = driver;
-        System.out.println("LocatorDataList size: " + locatorDataList.size());
+        //System.out.println("LocatorDataList size: " + locatorDataList.size());
+        //System.out.println(" \t Classe Form Authentication \t");
 
-        for (By locator : locatorDataList) {
-            String locatorType = getLocatorType(locator);
-            String locatorValue = getLocatorValue(locator);
+        for (List<String> locator : locatorDataList) {
+            String locatorName = locator.get(0);
+            //System.out.println(locatorName);
+            String locatorType = locator.get(1);
+            //System.out.println(locatorType);
+            String locatorValue = locator.get(2);
+            //System.out.println(locatorValue);
 
-            if (locatorValue.contains("username")) {
+            if (locatorName.contains("username")) {
                 usernameBox = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-            } else if (locatorValue.contains("password")) {
+            } else if (locatorName.contains("password")) {
                 passwordBox = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-            } else if (locatorValue.contains("submit")) {
+            } else if (locatorName.contains("confirm")) {
                 confirmButton = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-            } else if (locatorValue.contains("logout")) {
+            } else if (locatorName.contains("LogOut")) {
                 logOut = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-            } else if (locatorValue.contains("Logout")) {
+            } else if (locatorName.contains("logOutButton")) {
                 logOutButton = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             }
             }
         }
 
-    private String getLocatorType(By locator) {
-        String locatorString = locator.toString();
-        return locatorString.split(":")[0].substring(3);
-    }
-
-    private String getLocatorValue(By locator) {
-        String locatorString = locator.toString();
-        return locatorString.split(":")[1].trim();
-    }
-
 
     //Metodo che inserisce username, password e conferma
     public void login(String username, String password){
         try {
+            //System.out.println("USERNAME, PASSWORD E CONFIRM BUTTON \t" + usernameBox + "\t" + passwordBox + "\t" + confirmButton);
             driver.findElement(usernameBox).sendKeys(username);
             driver.findElement(passwordBox).sendKeys(password);
             driver.findElement(confirmButton).click();
+            //System.out.println("LogOut \t" + logOut + "\n logOutButton \t" + logOutButton);
 
             // Controllo se l'accesso è avvenuto con successo
             if (isLoginSuccessful()) {
@@ -76,15 +73,18 @@ public class FormAuthenticationPage {
             WebElement logoutButton = driver.findElement(logOutButton);
             return logoutButton.isDisplayed();
         } catch (NoSuchElementException e) {
+            //System.out.println("LOGIN NON RIUSCITA");
             return false; // Pulsante di logout non trovato, l'accesso non è riuscito.
         }
     }
 
     public void logOut(){
         if(isLoginSuccessful())
-        {driver.findElement(logOut).click();}
+        {driver.findElement(logOutButton).click();}
         else
             System.out.println("Non è possibile effettuare il logout");
+
+
     }
 
 }

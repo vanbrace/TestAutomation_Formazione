@@ -18,48 +18,40 @@ public class HerokuappHomePage {
     private By multipleWindowbutton;
     private final String url = "http://the-internet.herokuapp.com/";
 
-    public HerokuappHomePage(WebDriver driver, List<By> locatorDataList) {
+    public HerokuappHomePage(WebDriver driver, List<List<String>> locatorDataList) {
         this.driver = driver;
 
-        System.out.println("LocatorDataList size: " + locatorDataList.size());
+        //System.out.println("LocatorDataList size: " + locatorDataList.size());
 
-        for (By locator : locatorDataList) {
-            String locatorType = getLocatorType(locator);
-            System.out.println("Nel costruttore HerokuappHomePage nel for \t" + locatorType);
-            String locatorValue = getLocatorValue(locator);
-            System.out.println("Nel costruttore HerokuappHomePage nel for \t" + locatorValue);
+        for (List<String> locator : locatorDataList) {
+            String locatorName = locator.get(0);
+            //System.out.println("Nel costruttore HerokuappHomePage nel for \t" + locatorName);
+            String locatorType = locator.get(1);
+            //System.out.println("Nel costruttore HerokuappHomePage nel for \t" + locatorType);
+            String locatorValue = locator.get(2);
+            //System.out.println("Nel costruttore HerokuappHomePage nel for \t" + locatorValue);
 
-            if (locatorValue.contains("login")) {
+            if (locatorName.contains("formAuthenticationButtonLink")) {
                 formAuthenticationButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-            } else if (locatorValue.contains("add")) {
+            } else if (locatorName.contains("addAndRemoveElementsButtonLink")) {
                 addAndRemoveElementsButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-            } else if (locatorValue.contains("Checkboxes")) {
+            } else if (locatorName.contains("checkboxesButtonLink")) {
                 checkboxesButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-            } else if (locatorValue.contains("Disappearing")) {
+            } else if (locatorName.contains("disappearingElementsButtonLink")) {
                 disappearingElementsButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-            } else if (locatorValue.contains("Dynamic Content")) {
+            } else if (locatorName.contains("dynamicContentButtonLink")) {
                 dynamicContentButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-            } else if (locatorValue.contains("Dynamic Loading")) {
+            } else if (locatorName.contains("dynamicLoadingButtonLink")) {
                 dynamicLoadingButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-            } else if (locatorValue.contains("Download")) {
+            } else if (locatorName.contains("fileDownloadButtonLink")) {
                 fileDownloadButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-            } else if (locatorValue.contains("Shifting")) {
+            } else if (locatorName.contains("shiftingContent")) {
                 shiftingContent = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-            } else if (locatorValue.contains("windows")) {
+            } else if (locatorName.contains("multipleWindowbutton")) {
                 multipleWindowbutton = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
-                System.out.println("Nel costruttore \t" + multipleWindowbutton.toString());
+               // System.out.println("Nel costruttore \t" + multipleWindowbutton.toString());
             }
         }
-    }
-
-    private String getLocatorType(By locator) {
-        String locatorString = locator.toString();
-        return locatorString.split(":")[0].substring(3);
-    }
-
-    private String getLocatorValue(By locator) {
-        String locatorString = locator.toString();
-        return locatorString.split(":")[1].trim();
     }
 
     // Metodo per aprire la pagina di Herokuapp
@@ -78,6 +70,7 @@ public class HerokuappHomePage {
 
     public void searchCheckboxes() {
         cliccaBottone(checkboxesButtonLink);
+        //System.out.println("BUTTON CHECKBOXES" + checkboxesButtonLink);
     }
 
     public void searchDisappearingElements() {

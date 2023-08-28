@@ -9,9 +9,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.List;
 
-import org.openqa.selenium.By;
-
-//Test di MultipleWindow
+//Test della sezione MultipleWindow di HerokuApp
 public class TestMultipleWindow {
     WebDriver driver;
     String url = "http://the-internet.herokuapp.com/";
@@ -37,14 +35,14 @@ public class TestMultipleWindow {
     public void testLoginErrataHerokuapp() {
         //Apro Herokuapp
         try {
-            List<By> locatorDataList1 = CsvDataReader.readLocatorData(csvPathHerokuappHomePage);
+            List<List<String>> locatorDataList1 = CsvDataReader.readLocatorData(csvPathHerokuappHomePage);
 
             //Apro Herokuapp
             HerokuappHomePage herokuappHomePage1 = new HerokuappHomePage(driver, locatorDataList1);
             herokuappHomePage1.openHerokuapp();
             herokuappHomePage1.searchMultipleWindow();
 
-            List<By> locatorDataList2 = CsvDataReader.readLocatorData(csvPathMultipleWindow);
+            List<List<String>> locatorDataList2 = CsvDataReader.readLocatorData(csvPathMultipleWindow);
 
             // Esegui le operazioni sugli elementi della pagina
             MultipleWindow multipleWindow = new MultipleWindow(driver, locatorDataList2);
@@ -52,7 +50,6 @@ public class TestMultipleWindow {
 
             // Torna alla pagina principale alla fine del test
             driver.get(url);
-
 
         } catch (IOException e) {
             System.out.println("Errore durante la lettura del file CSV: " + e.getMessage());

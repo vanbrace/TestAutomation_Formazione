@@ -9,15 +9,16 @@ public class DisappearingElements {
     private WebDriver driver;
     private By homeButton;
 
-    public DisappearingElements(WebDriver driver, List<By> locatorDataList){
+    public DisappearingElements(WebDriver driver, List<List<String >> locatorDataList){
         this.driver = driver;
 
-        for (By locator : locatorDataList) {
-            System.out.println("Checking locator: " + locator);
-            if (locator.toString().contains("Home")) {
-                homeButton = locator;
-                homeButton.toString();
-                break;
+        for (List<String> locator : locatorDataList) {
+            String locatorName = locator.get(0);
+            String locatorType = locator.get(1);
+            String locatorValue = locator.get(2);
+
+            if (locatorName.contains("homeButton")) {
+                homeButton = ConvertitoreDaStringheABy.convertStringToBy(locatorType,locatorValue);
             }
         }
 
@@ -25,7 +26,7 @@ public class DisappearingElements {
             throw new IllegalArgumentException("Locator for disappearing elements not found in the list.");
         }
 
-        System.out.println("Using locator: " + homeButton);
+        //System.out.println("Using locator: " + homeButton);
     }
 
     public void home(){

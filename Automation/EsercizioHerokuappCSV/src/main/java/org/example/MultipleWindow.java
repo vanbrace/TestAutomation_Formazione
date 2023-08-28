@@ -9,28 +9,28 @@ public class MultipleWindow {
     private WebDriver driver;
     private By clickHere;
 
-    public MultipleWindow(WebDriver driver, List<By> locatorDataList) {
+    public MultipleWindow(WebDriver driver, List<List<String>> locatorDataList) {
         this.driver = driver;
 
-        System.out.println("LocatorDataList size: " + locatorDataList.size());
+        for (List<String> locator : locatorDataList) {
+            String locatorName = locator.get(0);
+            String locatorType = locator.get(1);
+            String locatorValue = locator.get(2);
 
-        for (By locator : locatorDataList) {
-            System.out.println("Checking locator: " + locator);
-            if (locator.toString().contains("windows")) {
-                clickHere = locator;
-                break;
+            if (locatorName.contains("clickHere")) {
+                clickHere = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             }
-        }
 
-        if (clickHere == null) {
-            throw new IllegalArgumentException("Locator for clickHere not found in the list.");
-        }
+            if (clickHere == null) {
+                throw new IllegalArgumentException("Locator for clickHere not found in the list.");
+            }
 
-        System.out.println("Using locator: " + clickHere);
+            //System.out.println("Using locator: " + clickHere);
+        }
     }
 
     public void openNewWindow() {
-        System.out.println("Clicco su clickHere");
+        //System.out.println("Clicco su clickHere");
         driver.findElement(clickHere).click();
     }
 }

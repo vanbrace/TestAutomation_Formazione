@@ -10,32 +10,20 @@ public class AddAndRemoveElements {
     private By addButton;
     private By removeButton;
 
-    public AddAndRemoveElements(WebDriver driver, List<By> locatorDataList) {
+    public AddAndRemoveElements(WebDriver driver, List<List<String>> locatorDataList) {
         this.driver = driver;
-        for (By locator : locatorDataList) {
-            if (locator.toString().contains("Add Element")) {
-                addButton = locator;
-            } else if (locator.toString().contains("Delete")) {
-                removeButton = locator;
+
+        for (List<String> locator : locatorDataList){
+
+            String locatorName = locator.get(0);
+            String locatorType = locator.get(1);
+            String locatorValue = locator.get(2);
+
+            if (locatorName.contains("addbutton")) {
+                addButton = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+            } else if (locatorName.contains("removeButton")) {
+                removeButton = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             }
-        }
-    }
-
-    private String getLocatorType(By locator) {
-        String locatorString = locator.toString();
-        return locatorString.split(":")[0].substring(3);
-    }
-
-    private String getLocatorValue(By locator) {
-        String locatorString = locator.toString();
-        return locatorString.split(":")[1].trim();
-    }
-
-    public void setButtonLocators(String buttonName, String buttonType, String buttonValue) {
-        if (buttonName.contains("addButton")) {
-            addButton = ConvertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
-        } else if (buttonName.contains("removeButton")) {
-            removeButton = ConvertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
         }
     }
 
@@ -59,4 +47,3 @@ public class AddAndRemoveElements {
         }
     }
 }
-

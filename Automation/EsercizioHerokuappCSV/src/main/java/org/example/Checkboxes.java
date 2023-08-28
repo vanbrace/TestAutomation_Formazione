@@ -10,33 +10,19 @@ public class Checkboxes {
     private By spuntaCheckbox;
     List<By> locatorDataList;
 
-    public Checkboxes(WebDriver driver, List<By> locatorDataList) {
+    public Checkboxes(WebDriver driver, List<List<String>> locatorDataList) {
         this.driver = driver;
-        this.locatorDataList = locatorDataList;
 
+        for (List<String> locator : locatorDataList) {
+            String locatorName = locator.get(0);
+            String locatorType = locator.get(1);
+            String locatorValue = locator.get(2);
 
-        for (By locator : locatorDataList) {
-
-            String locatorType = getLocatorType(locator);
-            //System.out.println( "locatorType: \t" + locatorType);
-            String locatorValue = getLocatorValue(locator);
-            //System.out.println( "locatorValue: \t" + locatorValue);
-
-            if (locatorValue.contains("checkboxes")) {
-                spuntaCheckbox = ConvertStringToBy(locatorType, locatorValue);
-                spuntaCheckbox.toString();
+            if (locatorName.contains("spuntaCheckbox")) {
+                spuntaCheckbox = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+                //System.out.println(spuntaCheckbox.toString());
             }
         }
-    }
-
-    private String getLocatorType(By locator) {
-        String locatorString = locator.toString();
-        return locatorString.split(":")[0].substring(3);
-    }
-
-    private String getLocatorValue(By locator) {
-        String locatorString = locator.toString();
-        return locatorString.split(":")[1].trim();
     }
 
     public void checkbox() {
@@ -46,5 +32,4 @@ public class Checkboxes {
             System.out.println("Element spuntaCheckbox1 is null");
         }
     }
-
 }

@@ -9,14 +9,15 @@ public class DynamicLoading {
     WebDriver driver;
     private By example1Link;
 
-    public DynamicLoading(WebDriver driver, List<By> locatorDataList){
+    public DynamicLoading(WebDriver driver, List<List<String>> locatorDataList){
         this.driver = driver;
-        for (By locator : locatorDataList) {
-            System.out.println("Checking locator: " + locator);
-            if (locator.toString().contains("Example 1")) {
-                example1Link = locator;
-                //example1Link.toString();
-                break;
+        for (List<String> locator : locatorDataList) {
+            String locatorName = locator.get(0);
+            String locatorType = locator.get(1);
+            String locatorValue = locator.get(2);
+
+            if (locatorName.contains("example1Link")) {
+                example1Link = ConvertitoreDaStringheABy.convertStringToBy(locatorType,locatorValue);
             }
         }
 
@@ -24,7 +25,7 @@ public class DynamicLoading {
             throw new IllegalArgumentException("Locator for disappearing elements not found in the list.");
         }
 
-        System.out.println("Using locator: " + example1Link);
+        //System.out.println("Using locator: " + example1Link);
     }
 
     public void example1(){

@@ -10,35 +10,20 @@ public class ShiftingContent {
     private By menuElementButtonLink;
     private By homeButton;
 
-    public ShiftingContent(WebDriver driver, List<By> locatorDataList){
+    public ShiftingContent(WebDriver driver, List<List<String>> locatorDataList){
         this.driver = driver;
-        for (By locator : locatorDataList) {
-            if (locator.toString().contains("Example 1")) {
-                menuElementButtonLink = locator;
-            } else if (locator.toString().contains("Home")) {
-                homeButton = locator;
+        for (List<String> locator : locatorDataList) {
+            String locatorName = locator.get(0);
+            String locatorType = locator.get(1);
+            String locatorValue = locator.get(2);
+
+            if (locatorName.contains("menuElementButtonLink")) {
+                menuElementButtonLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
+            } else if (locatorName.contains("homeButton")) {
+                homeButton = ConvertitoreDaStringheABy.convertStringToBy(locatorType, locatorValue);
             }
         }
     }
-
-    private String getLocatorType(By locator) {
-        String locatorString = locator.toString();
-        return locatorString.split(":")[0].substring(3);
-    }
-
-    private String getLocatorValue(By locator) {
-        String locatorString = locator.toString();
-        return locatorString.split(":")[1].trim();
-    }
-
-    public void setButtonLocators(String buttonName, String buttonType, String buttonValue) {
-        if (buttonName.contains("Example 1")) {
-            menuElementButtonLink = ConvertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
-        } else if (buttonName.contains("Home")) {
-            homeButton = ConvertitoreDaStringheABy.convertStringToBy(buttonType, buttonValue);
-        }
-    }
-
 
     public void menuElement(){
         driver.findElement(menuElementButtonLink).click();

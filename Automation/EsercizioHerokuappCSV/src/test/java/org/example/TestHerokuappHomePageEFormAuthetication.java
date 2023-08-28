@@ -10,9 +10,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.List;
 
-import org.openqa.selenium.By;
-
-//Test di HerokuappHomePage
+//Test di Herokuapp su più pagine
 public class TestHerokuappHomePageEFormAuthetication {
     WebDriver driver;
     String username = "tomsmith";
@@ -20,15 +18,18 @@ public class TestHerokuappHomePageEFormAuthetication {
     String url = "http://the-internet.herokuapp.com/";
     String csvPathHerokuappHomePage = "C:\\Users\\imaiorino\\Desktop\\Java\\Test automation\\Locator_HerokuappHomePage.csv";
     String csvPathFormAuthenticationPage = "C:\\Users\\imaiorino\\Desktop\\Java\\Test automation\\Locator_FormAuthenticationPage.csv";
+    // AddAndRemoveElements ha una classe di test apposita
     //String csvPathAddAndRemoveElements = "C:\\Users\\imaiorino\\Desktop\\Java\\Test automation\\Locator_AddAndRemoveElements.csv";
     String csvPathCheckboxes = "C:\\Users\\imaiorino\\Desktop\\Java\\Test automation\\Locator_Checkboxes.csv";
     String csvPathDisappearingElements = "C:\\Users\\imaiorino\\Desktop\\Java\\Test automation\\Locator_DisappearingElements.csv";
     String csvPathDynamicContent = "C:\\Users\\imaiorino\\Desktop\\Java\\Test automation\\Locator_DynamicContent.csv";
     String csvPathDynamicLoading = "C:\\Users\\imaiorino\\Desktop\\Java\\Test automation\\Locator_DynamicLoading.csv";
     String csvPathShiftingContent = "C:\\Users\\imaiorino\\Desktop\\Java\\Test automation\\Locator_ShiftingContent.csv";
+    //Non testiamo la parte che riguarda il download dei file in quanto vengono apportate quotidianamente modifiche alla pagina e richiede continua manutenzione
     //String csvPathFileDownload = "C:\\Users\\imaiorino\\Desktop\\Java\\Test automation\\Locator_FileDownload.csv";
+    
+    // MultipleWindow ha una classe di test apposita
     //String csvPathMultipleWindow = "C:\\Users\\imaiorino\\Desktop\\Java\\Test automation\\Locator_MultipleWindow.csv";
-
 
     @BeforeMethod
     public void setUP(){
@@ -48,23 +49,26 @@ public class TestHerokuappHomePageEFormAuthetication {
     @Test
     public void testLoginErrataHerokuapp() {
         try {
-            List<By> locatorDataList1 = CsvDataReader.readLocatorData(csvPathHerokuappHomePage);
+            List<List<String>> locatorDataList1 = CsvDataReader.readLocatorData(csvPathHerokuappHomePage);
 
             //Apro Herokuapp
             HerokuappHomePage herokuappHomePage1 = new HerokuappHomePage(driver, locatorDataList1);
             herokuappHomePage1.openHerokuapp();
             herokuappHomePage1.searchformAuthentication();
 
-            List<By> locatorDataList2 = CsvDataReader.readLocatorData(csvPathFormAuthenticationPage);
+            List<List<String>> locatorDataList2 = CsvDataReader.readLocatorData(csvPathFormAuthenticationPage);
 
             FormAuthenticationPage formAuthenticationPage = new FormAuthenticationPage(driver, locatorDataList2);
             formAuthenticationPage.login(username, password);
+            formAuthenticationPage.logOut();
 
             // Torna alla pagina principale alla fine del test
-            driver.get(url);
+            driver.navigate().to(url);
+
+            herokuappHomePage1.searchCheckboxes();
 
             //herokuappHomePage1.searchCheckboxes();
-            List<By> locatorDataList3 = CsvDataReader.readLocatorData(csvPathCheckboxes);
+            List<List<String>> locatorDataList3 = CsvDataReader.readLocatorData(csvPathCheckboxes);
 
             Checkboxes checkbox = new Checkboxes(driver, locatorDataList3);
             // spunto la checkbox1
@@ -75,7 +79,7 @@ public class TestHerokuappHomePageEFormAuthetication {
 
             // Cerco il link relativo al Disappearing Elements
             herokuappHomePage1.searchDisappearingElements();
-            List<By> locatorDataList4 = CsvDataReader.readLocatorData(csvPathDisappearingElements);
+            List<List<String>> locatorDataList4 = CsvDataReader.readLocatorData(csvPathDisappearingElements);
             DisappearingElements disappearingElements = new DisappearingElements(driver, locatorDataList4);
             disappearingElements.home();
 
@@ -84,7 +88,7 @@ public class TestHerokuappHomePageEFormAuthetication {
 
             // Cerco il link relativo al Dynamic Content
             herokuappHomePage1.searchDynamicContent();
-            List<By> locatorDataList5 = CsvDataReader.readLocatorData(csvPathDynamicContent);
+            List<List<String>> locatorDataList5 = CsvDataReader.readLocatorData(csvPathDynamicContent);
             DynamicContent dynamicContent = new DynamicContent(driver,locatorDataList5);
             dynamicContent.clickHere();
 
@@ -93,7 +97,7 @@ public class TestHerokuappHomePageEFormAuthetication {
 
             // Cerco il link relativo al Dynamic Loading
             herokuappHomePage1.searchDynamicLoading();
-            List<By> locatorDataList6 = CsvDataReader.readLocatorData(csvPathDynamicLoading);
+            List<List<String>> locatorDataList6 = CsvDataReader.readLocatorData(csvPathDynamicLoading);
             DynamicLoading dynamicLoading = new DynamicLoading(driver,locatorDataList6);
             dynamicLoading.example1();
 
@@ -102,13 +106,12 @@ public class TestHerokuappHomePageEFormAuthetication {
 
             // Cerco il link relativo allo Shifting Content
             herokuappHomePage1.searchShiftingContent();
-            List<By> locatorDataList7 = CsvDataReader.readLocatorData(csvPathShiftingContent);
+            List<List<String>> locatorDataList7 = CsvDataReader.readLocatorData(csvPathShiftingContent);
             ShiftingContent shiftingContent = new ShiftingContent(driver,locatorDataList7);
             shiftingContent.menuElement();
 
             //torno indietro
             driver.navigate().to(url);
-
 
         } catch (IOException e) {
             System.out.println("Errore durante la lettura del file CSV: " + e.getMessage());

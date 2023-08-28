@@ -10,7 +10,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 
-//Add and remove elements con numero di Remove superiore al numero di add
+//Test della sezione AddAndRemove elements di HerokuApp con numero di remove superiore al numero di add. Tale classe più essere modificata e utilizzata con un numero di remove inferiore.
 public class TestRemoveMoreThanAdd {
     WebDriver driver;
     String url = "http://the-internet.herokuapp.com/";
@@ -36,15 +36,14 @@ public class TestRemoveMoreThanAdd {
     public void testLoginErrataHerokuapp() {
         //Apro Herokuapp
         try {
-            List<By> locatorDataList1 = CsvDataReader.readLocatorData(csvPathHerokuappHomePage);
+            List<List<String>> locatorDataList1 = CsvDataReader.readLocatorData(csvPathHerokuappHomePage);
 
             //Apro Herokuapp
             HerokuappHomePage herokuappHomePage1 = new HerokuappHomePage(driver, locatorDataList1);
             herokuappHomePage1.openHerokuapp();
             herokuappHomePage1.searchAddAndRemoveElements();
 
-
-            List<By> locatorDataList2 = CsvDataReader.readLocatorData(csvPathAddAndRemoveElements);
+            List<List<String>> locatorDataList2 = CsvDataReader.readLocatorData(csvPathAddAndRemoveElements);
 
             // Esegui le operazioni sugli elementi della pagina
             AddAndRemoveElements addAndRemoveElements = new AddAndRemoveElements(driver, locatorDataList2);
@@ -54,7 +53,6 @@ public class TestRemoveMoreThanAdd {
 
             // Torna alla pagina principale alla fine del test
             driver.get(url);
-
 
         } catch (IOException e) {
             System.out.println("Errore durante la lettura del file CSV: " + e.getMessage());

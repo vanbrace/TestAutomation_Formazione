@@ -9,15 +9,16 @@ public class DynamicContent {
     private WebDriver driver;
     private By clickHereLink;
 
-    public DynamicContent(WebDriver driver, List<By>locatorDataList){
+    public DynamicContent(WebDriver driver, List<List<String>>locatorDataList){
         this.driver = driver;
 
-        for (By locator : locatorDataList) {
-            System.out.println("----------Dynamic Content: " + locator);
-            if (locator.toString().contains("click")) {
-                clickHereLink = locator;
-                clickHereLink.toString();
-                break;
+        for (List<String> locator : locatorDataList) {
+            String locatorName = locator.get(0);
+            String locatorType = locator.get(1);
+            String locatorValue = locator.get(2);
+
+            if (locatorName.contains("clickHereLink")) {
+                clickHereLink = ConvertitoreDaStringheABy.convertStringToBy(locatorType,locatorValue);
             }
         }
 
@@ -25,7 +26,7 @@ public class DynamicContent {
             throw new IllegalArgumentException("Locator for disappearing elements not found in the list.");
         }
 
-        System.out.println("Using locator: " + clickHereLink);
+        //System.out.println("Using locator: " + clickHereLink);
     }
 
     public void clickHere(){

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class LoginPage {
+public class Login {
 
     private By btn_signIn = By.xpath("//header/div[1]/div[1]/ul[1]/li[2]/a[1]");
     private By txt_email = By.id("email");
@@ -16,7 +16,7 @@ public class LoginPage {
     String email;
     String password;
 
-    public LoginPage(WebDriver driver){
+    public Login(WebDriver driver){
         this.driver = driver;
     }
 
@@ -34,6 +34,11 @@ public class LoginPage {
     }
 
     public void checkLoginIsCorrect() {
+//        try {
+//            driver.findElement(btn_correctLogin).isDisplayed();
+//        } catch (NoSuchElementException e) {
+//            System.out.println("LOGIN NON RIUSCITA");
+//        }
         boolean actualAnswer = driver.findElement(btn_correctLogin).isDisplayed();
         assertEquals(true, actualAnswer);
     }

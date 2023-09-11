@@ -8,16 +8,20 @@ import org.example.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import javax.xml.xpath.XPath;
+
 public class LoginPageSteps {
 
     WebDriver driver;
     LoginPage login;
+    String url = "https://magento.softwaretestingboard.com/";
+    String path = "C:\\Users\\imaiorino\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe";
 
     @Given("Browser is open on the home page")
     public void browser_is_open_on_home_page() {
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\imaiorino\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", path);
         driver = new ChromeDriver();
-        driver.navigate().to("https://magento.softwaretestingboard.com/");
+        driver.navigate().to(url);
     }
 
     @And("User clicks on sign in")
@@ -39,7 +43,6 @@ public class LoginPageSteps {
 
     @Then("User is logged")
     public void user_is_logged() throws InterruptedException {
-        //assertEquals(expectedAnswer, actualAnswer);
         login.checkLoginIsCorrect();
         Thread.sleep(2000);
         driver.close();
